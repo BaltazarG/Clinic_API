@@ -2,12 +2,15 @@
 using ClinicQueriesAPI.Data;
 using ClinicQueriesAPI.Entities;
 using ClinicQueriesAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicQueriesAPI.Controllers
 {
     [ApiController]
     [Route("api/patients/{patientId}/queries", Name = "GetQueries")]
+    [Authorize]
+
     public class QueriesPatientController : ControllerBase
     {
         private readonly IQueryRepository _queryRepository;

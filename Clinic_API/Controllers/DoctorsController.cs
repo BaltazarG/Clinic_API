@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ClinicQueriesAPI.Data;
 using ClinicQueriesAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicQueriesAPI.Controllers
@@ -8,6 +9,7 @@ namespace ClinicQueriesAPI.Controllers
 
     [Route("api/doctors", Name = "GetDoctors")]
     [ApiController]
+    [Authorize]
     public class DoctorsController : ControllerBase
     {
         private readonly IDoctorRepository _doctorRepository;
