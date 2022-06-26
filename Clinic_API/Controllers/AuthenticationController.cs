@@ -24,7 +24,7 @@ namespace Clinic_API.Controllers
                 _autenticacionService = autenticacionService;
             }
 
-            [HttpPost("autenticar")]
+            [HttpPost("login")]
             public ActionResult<string> Autenticar(AuthenticationRequestBody authenticationRequestBody) 
             {
                
@@ -56,6 +56,8 @@ namespace Clinic_API.Controllers
 
                 return Ok(tokenToReturn);
             }
+
+
 
             private User? ValidarCredenciales(AuthenticationRequestBody parametrosAutenticacion)
             {

@@ -21,6 +21,7 @@ namespace ClinicQueriesAPI.Data
 
         public void AddPatient(Patient newPatient)
         {
+            
             if (newPatient != null)
                 _context.Patients.Add(newPatient);
         }

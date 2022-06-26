@@ -9,7 +9,7 @@ namespace ClinicQueriesAPI.Controllers
 {
     [Route("api/patients", Name = "GetPatients")]
     [ApiController]
-    [Authorize]
+    
 
     public class PatientsController : ControllerBase
     {
@@ -24,6 +24,7 @@ namespace ClinicQueriesAPI.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public ActionResult<List<PatientWithoutQueriesDto>> GetPatients()
         {
             var patients = _patientRepository.GetPatients();
@@ -37,6 +38,7 @@ namespace ClinicQueriesAPI.Controllers
         }
 
         [HttpGet("{patientId}")]
+        [Authorize]
         public ActionResult<PatientWithoutQueriesDto> GetPatient(int patientId)
         {
             var patient = _patientRepository.GetPatient(patientId);
@@ -57,6 +59,8 @@ namespace ClinicQueriesAPI.Controllers
 
             _patientRepository.AddPatient(newPatient);
             _patientRepository.SaveChanges();
+
+
 
             return CreatedAtRoute("GetPatients",
                 new

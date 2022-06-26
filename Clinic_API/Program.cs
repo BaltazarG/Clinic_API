@@ -8,8 +8,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 
-var builder = WebApplication.CreateBuilder(args);
 
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -76,7 +76,17 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//
+app.UseCors(x => x
+           .AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader());
+//
+
+
 app.UseHttpsRedirection();
+
+
 
 app.UseAuthentication();
 
