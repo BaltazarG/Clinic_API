@@ -34,12 +34,20 @@ namespace ClinicQueriesAPI.Data
             return _context.Queries.Where(x => x.PatientId == patientId).ToList();
         }
 
+        
         public Query? GetQuery(int patientId, int queryId)
         {
             return _context.Queries.Where(q => q.Id == queryId && q.PatientId == patientId).FirstOrDefault();
         }
-
         
+        public IEnumerable<Query> GetQueriesDoctor(int doctorId)
+        {
+            return _context.Queries.Where(x => x.DoctorId == doctorId).ToList();
+        }
 
+        public Query? GetQueryDoctor(int doctorId, int queryId)
+        {
+            return _context.Queries.Where(q => q.Id == queryId && q.DoctorId == doctorId).FirstOrDefault();
+        }
     }
 }

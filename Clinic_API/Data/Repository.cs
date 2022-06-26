@@ -2,7 +2,7 @@
 
 namespace ClinicQueriesAPI.Data
 {
-    public class Repository
+    public class Repository : IRepository
     {
         internal readonly ClinicContext _context;
 
@@ -19,6 +19,11 @@ namespace ClinicQueriesAPI.Data
         public bool IsPatient(int patientId)
         {
             return _context.Patients.Any(p => p.Id == patientId);
+        }
+
+        public bool IsDoctor(int doctorId)
+        {
+            return _context.Doctors.Any(d => d.Id == doctorId);
         }
     }
 }

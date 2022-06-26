@@ -9,6 +9,9 @@ namespace ClinicQueriesAPI.Data
         public IEnumerable<Query> GetQueries(int patientId);
         public void DeleteQuery(Query query);
 
+        Query? GetQueryDoctor(int doctorId, int queryId);
+        public IEnumerable<Query> GetQueriesDoctor(int doctorId);
+
 
     }
 }

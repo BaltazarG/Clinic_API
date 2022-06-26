@@ -8,11 +8,11 @@ namespace ClinicQueriesAPI.Controllers
 {
     [ApiController]
     [Route("api/patients/{patientId}/queries", Name = "GetQueries")]
-    public class QueriesController : ControllerBase
+    public class QueriesPatientController : ControllerBase
     {
         private readonly IQueryRepository _queryRepository;
         private readonly IMapper _mapper;
-        public QueriesController(IQueryRepository queryRepository, IMapper mapper)
+        public QueriesPatientController(IQueryRepository queryRepository, IMapper mapper)
         {
             _queryRepository = queryRepository;
             _mapper = mapper;

@@ -25,7 +25,8 @@ namespace ClinicQueriesAPI.Entities
         public DateTime? CreatedAt { get; set; }
         public DateTime? ResolvedAt { get; set; }
 
-
+        [ForeignKey("DoctorId")]
+        public Doctor? Doctor { get; set; }
         public int DoctorId { get; set; }
 
         public Query(string title, string description)

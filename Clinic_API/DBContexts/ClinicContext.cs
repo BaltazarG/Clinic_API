@@ -130,6 +130,9 @@ namespace ClinicQueriesAPI.DBContexts
 
                 });
 
+           
+
+
             base.OnModelCreating(modelBuilder);
 
         }
