@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Clinic_API.Models;
 using ClinicQueriesAPI.Entities;
 using ClinicQueriesAPI.Models;
 
@@ -9,6 +10,7 @@ namespace ClinicQueriesAPI.Profiles
         public DoctorProfile()
         {
             CreateMap<Doctor, DoctorDto>();
+            CreateMap<Doctor, AuthDoctorDto>();
         }        
     }
 }

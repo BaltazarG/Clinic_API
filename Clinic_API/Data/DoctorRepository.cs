@@ -14,9 +14,15 @@ namespace ClinicQueriesAPI.Data
             return _context.Doctors.Where(p => p.Id == doctorId).FirstOrDefault();
         }
 
+        
+
         public IEnumerable<Doctor> GetDoctors()
         {
             return _context.Doctors.OrderBy(c => c.Name).ToList();
+        }
+        public Doctor? GetDoctorByEmail(string email)
+        {
+            return _context.Doctors.Where(d => d.Email == email).FirstOrDefault();
         }
     }
 }

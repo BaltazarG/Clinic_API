@@ -1,5 +1,7 @@
-﻿using Clinic_API.Models;
+﻿using AutoMapper;
+using Clinic_API.Models;
 using Clinic_API.Services;
+using ClinicQueriesAPI.Data;
 using ClinicQueriesAPI.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -17,15 +19,22 @@ namespace Clinic_API.Controllers
         
             private readonly IConfiguration _config;
             private readonly IAuthenticationService _autenticacionService;
+            private readonly IPatientRepository _patientRepository;
+            private readonly IDoctorRepository _doctorRepository;
+            private readonly IMapper _mapper;
 
-            public AuthenticationController(IConfiguration config, IAuthenticationService autenticacionService)
-            {
-                _config = config;
-                _autenticacionService = autenticacionService;
-            }
+        public AuthenticationController(IConfiguration config, IAuthenticationService autenticacionService, IPatientRepository patientRepository, IDoctorRepository doctorRepository, IMapper mapper)
+        {
+            _config = config;
+            _autenticacionService = autenticacionService;
+            _patientRepository = patientRepository;
+            _doctorRepository = doctorRepository;
+            _mapper = mapper;
 
-            [HttpPost("login")]
-            public ActionResult<string> Autenticar(AuthenticationRequestBody authenticationRequestBody) 
+        }
+
+        [HttpPost("login")]
+            public ActionResult<AuthPatientDto> Autenticar(AuthenticationRequestBody authenticationRequestBody) 
             {
                
                 var usuario = ValidarCredenciales(authenticationRequestBody); 
@@ -54,7 +63,19 @@ namespace Clinic_API.Controllers
                 var tokenToReturn = new JwtSecurityTokenHandler()
                     .WriteToken(jwtSecurityToken);
 
-                return Ok(tokenToReturn);
+            if (authenticationRequestBody.UserType == "patient")
+            {
+                Patient? patient = _patientRepository.GetPatientByEmail(authenticationRequestBody.Email);
+                patient.Token = tokenToReturn;
+                return Ok(_mapper.Map<AuthPatientDto>(patient));
+            }
+            Doctor? doctor = _doctorRepository.GetDoctorByEmail(authenticationRequestBody.Email);
+            doctor.Token = tokenToReturn;
+
+            return Ok(_mapper.Map<AuthDoctorDto>(doctor));
+
+
+
             }
 
 

@@ -7,6 +7,7 @@ namespace ClinicQueriesAPI.Data
         public Patient? GetPatient(int patientId);
         public IEnumerable<Patient> GetPatients();
         public void AddPatient(Patient newPatient);
+        public Patient? GetPatientByEmail(string email);
 
     }
 }

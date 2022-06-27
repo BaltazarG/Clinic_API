@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Clinic_API.Models;
 using ClinicQueriesAPI.Entities;
 using ClinicQueriesAPI.Models;
 
@@ -13,6 +14,8 @@ namespace ClinicQueriesAPI.Profiles
             CreateMap<PatientCreationDto, Patient>();
             CreateMap<PatientCreationDto, PatientWithoutQueriesDto>();
             CreateMap<PatientUpdateDto, Patient>();
+            CreateMap<Patient, AuthPatientDto>();
+
         }
     }
 }

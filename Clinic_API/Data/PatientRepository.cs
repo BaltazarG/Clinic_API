@@ -26,6 +26,9 @@ namespace ClinicQueriesAPI.Data
                 _context.Patients.Add(newPatient);
         }
 
-
+        public Patient? GetPatientByEmail(string email)
+        {
+            return _context.Patients.Where(p => p.Email == email).FirstOrDefault();
+        }
     }
 }
