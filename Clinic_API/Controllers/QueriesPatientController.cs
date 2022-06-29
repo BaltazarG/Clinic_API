@@ -92,6 +92,8 @@ namespace ClinicQueriesAPI.Controllers
             if (queryToUpdate is null)
                 return NotFound();
 
+            queryToUpdate.ResolvedAt = DateTime.Now;
+                            
 
             _mapper.Map(queryUpdated, queryToUpdate);
 

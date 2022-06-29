@@ -27,6 +27,7 @@ namespace ClinicQueriesAPI.Entities
 
         public Doctor? Doctor { get; set; }
         public int DoctorId { get; set; }
+        public string? Diagnostic { get; set; }
 
         public Query(string title, string description)
         {

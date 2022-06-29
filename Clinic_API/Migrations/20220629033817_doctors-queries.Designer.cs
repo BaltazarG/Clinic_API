@@ -3,6 +3,7 @@ using System;
 using ClinicQueriesAPI.DBContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Clinic_API.Migrations
 {
     [DbContext(typeof(ClinicContext))]
-    partial class ClinicContextModelSnapshot : ModelSnapshot
+    [Migration("20220629033817_doctors-queries")]
+    partial class doctorsqueries
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.6");
@@ -212,7 +214,7 @@ namespace Clinic_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 20,
+                            Id = 1,
                             Description = "Tengo mucha fiebre desde que tome sol",
                             DoctorId = 10,
                             PatientId = 1,
@@ -221,7 +223,7 @@ namespace Clinic_API.Migrations
                         },
                         new
                         {
-                            Id = 32,
+                            Id = 2,
                             Description = "Picor en el cuello",
                             DoctorId = 10,
                             PatientId = 1,
@@ -230,7 +232,7 @@ namespace Clinic_API.Migrations
                         },
                         new
                         {
-                            Id = 41,
+                            Id = 3,
                             Description = "Me duele el pecho cuando camino 3 cuadras",
                             DoctorId = 9,
                             PatientId = 1,
@@ -239,7 +241,7 @@ namespace Clinic_API.Migrations
                         },
                         new
                         {
-                            Id = 51,
+                            Id = 4,
                             Description = "No llego a leer los subtitulos de una pelicula",
                             DoctorId = 11,
                             PatientId = 1,
@@ -248,7 +250,7 @@ namespace Clinic_API.Migrations
                         },
                         new
                         {
-                            Id = 52,
+                            Id = 5,
                             Description = "Tengo poca energia y dolor en los pulmones",
                             DoctorId = 13,
                             PatientId = 1,

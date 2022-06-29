@@ -22,8 +22,8 @@ namespace ClinicQueriesAPI.DBContexts
                     Id=1,
                     Name="Pablo",
                     LastName="Gomez",
-                    Email="pablo@gomez.com",
-                    Password="123abcd",
+                    Email="test@test.com",
+                    Password="1234567a",
                     
 
                 },
@@ -32,8 +32,8 @@ namespace ClinicQueriesAPI.DBContexts
                     Id=2,
                     Name="Juan",
                     LastName="Perez",
-                    Email="juan@perez.com",
-                    Password="123abv",
+                    Email="test2@test2.com",
+                    Password="1234567a",
                    
 
                 },
@@ -42,23 +42,23 @@ namespace ClinicQueriesAPI.DBContexts
                     Id=3,
                     Name="Bautista",
                     LastName="Velez",
-                    Email="bautista@velez.com",
-                    Password="123abcd",
+                    Email="test3@test3.com",
+                    Password="1234567a",
                     
                 }
 
             };
             modelBuilder.Entity<Patient>().HasData(patients);
 
-            var doctors = new Doctor[3]
+            var doctors = new Doctor[8]
             {
                 new Doctor()
                 {
                     Id=6,
                     Name="Nahuel",
                     LastName="Molina",
-                    Email="nahuel@molina.com",
-                    Password="123abcd"
+                    Email="kinesiologo@gmail.com",
+                    Password="1234567a"
 
                 },
                 new Doctor()
@@ -66,8 +66,8 @@ namespace ClinicQueriesAPI.DBContexts
                     Id=7,
                     Name="Arturo",
                     LastName="Perez",
-                    Email="juan@perez.com",
-                    Password="123abv"
+                    Email="pediatra@gmail.com",
+                    Password="1234567a"
 
                 },
                 new Doctor()
@@ -75,8 +75,48 @@ namespace ClinicQueriesAPI.DBContexts
                     Id=8,
                     Name="Julio",
                     LastName="Velez",
-                    Email="julio@velez.com",
-                    Password="123abcd",
+                    Email="traumatologo@gmail.com",
+                    Password="1234567a",
+                },
+                new Doctor()
+                {
+                    Id=9,
+                    Name="Alvaro",
+                    LastName="Moreno",
+                    Email="cardiologo@gmail.com",
+                    Password="1234567a",
+                },
+                new Doctor()
+                {
+                    Id=10,
+                    Name="Carlos",
+                    LastName="Torres",
+                    Email="dermatologo@gmail.com",
+                    Password="1234567a",
+                },
+                new Doctor()
+                {
+                    Id=11,
+                    Name="Luis",
+                    LastName="Mendez",
+                    Email="oftalmologo@gmail.com",
+                    Password="1234567a",
+                },
+                new Doctor()
+                {
+                    Id=12,
+                    Name="Pedro",
+                    LastName="Lopez",
+                    Email="ginecologo@gmail.com",
+                    Password="1234567a",
+                },
+                new Doctor()
+                {
+                    Id=13,
+                    Name="Leonel",
+                    LastName="Villalba",
+                    Email="oncologo@gmail.com",
+                    Password="1234567a",
                 }
 
             };
@@ -84,49 +124,40 @@ namespace ClinicQueriesAPI.DBContexts
 
 
             modelBuilder.Entity<Query>().HasData(
-                new Query("Cancer", "Dolor de pecho")
+                new Query("Fiebre", "Tengo mucha fiebre desde que tome sol")
                 {
-                    Id = 1,
+                    Id = 20,
                     PatientId = patients[0].Id,
-                    DoctorId = doctors[0].Id
-
+                    DoctorId = doctors[4].Id
                 },
                  new Query("Dermatitis", "Picor en el cuello")
                  {
-                     Id = 2,
+                     Id = 32,
                      PatientId = patients[0].Id,
-                     DoctorId = doctors[0].Id
+                     DoctorId = doctors[4].Id
 
                  },
-                new Query("Gripe", "Resfrio y fiebre")
+                new Query("Dolor de pecho", "Me duele el pecho cuando camino 3 cuadras")
                 {
-                    Id = 3,
-                    PatientId = patients[1].Id,
-                    DoctorId = doctors[1].Id
+                    Id = 41,
+                    PatientId = patients[0].Id,
+                    DoctorId = doctors[3].Id
 
                 }
                 ,
-                new Query("Covid", "Perdida olfato")
+                new Query("Problemas de vista", "No llego a leer los subtitulos de una pelicula")
                 {
-                    Id = 4,
-                    PatientId = patients[1].Id,
-                    DoctorId = doctors[1].Id
+                    Id = 51,
+                    PatientId = patients[0].Id,
+                    DoctorId = doctors[5].Id
 
                 }
                 ,
-                new Query("Gripe", "Resfrio y fiebre")
+                new Query("Posible cancer", "Tengo poca energia y dolor en los pulmones")
                 {
-                    Id = 5,
-                    PatientId = patients[2].Id,
-                    DoctorId = doctors[2].Id
-
-                }
-                ,
-                new Query("Gripe", "Resfrio y fiebre")
-                {
-                    Id = 6,
-                    PatientId = patients[2].Id,
-                    DoctorId = doctors[2].Id
+                    Id = 52,
+                    PatientId = patients[0].Id,
+                    DoctorId = doctors[7].Id
 
                 });
 

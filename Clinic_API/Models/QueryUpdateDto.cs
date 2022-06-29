@@ -5,12 +5,9 @@ namespace ClinicQueriesAPI.Models
 {
     public class QueryUpdateDto
     {
-        [Required(ErrorMessage = "Agrega un asunto")]
-        public string Title { get; set; } = string.Empty;
-
-        [Required(ErrorMessage = "Agrega una descripcion")]
-        public string Description { get; set; } = string.Empty;
-
+        [Required(ErrorMessage = "Agrega un estado")]
         public StatusQuery? StatusQuery { get; set; }
+        [Required(ErrorMessage = "Agrega un diagnostico")]
+        public string Diagnostic { get; set; }
     }
 }

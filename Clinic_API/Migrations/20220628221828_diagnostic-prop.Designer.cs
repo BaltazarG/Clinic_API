@@ -3,6 +3,7 @@ using System;
 using ClinicQueriesAPI.DBContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Clinic_API.Migrations
 {
     [DbContext(typeof(ClinicContext))]
-    partial class ClinicContextModelSnapshot : ModelSnapshot
+    [Migration("20220628221828_diagnostic-prop")]
+    partial class diagnosticprop
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.6");
@@ -50,66 +52,26 @@ namespace Clinic_API.Migrations
                         new
                         {
                             Id = 6,
-                            Email = "kinesiologo@gmail.com",
+                            Email = "nahuel@molina.com",
                             LastName = "Molina",
                             Name = "Nahuel",
-                            Password = "1234567a"
+                            Password = "123abcd"
                         },
                         new
                         {
                             Id = 7,
-                            Email = "pediatra@gmail.com",
+                            Email = "juan@perez.com",
                             LastName = "Perez",
                             Name = "Arturo",
-                            Password = "1234567a"
+                            Password = "123abv"
                         },
                         new
                         {
                             Id = 8,
-                            Email = "traumatologo@gmail.com",
+                            Email = "julio@velez.com",
                             LastName = "Velez",
                             Name = "Julio",
-                            Password = "1234567a"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Email = "cardiologo@gmail.com",
-                            LastName = "Moreno",
-                            Name = "Alvaro",
-                            Password = "1234567a"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Email = "dermatologo@gmail.com",
-                            LastName = "Torres",
-                            Name = "Carlos",
-                            Password = "1234567a"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Email = "oftalmologo@gmail.com",
-                            LastName = "Mendez",
-                            Name = "Luis",
-                            Password = "1234567a"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Email = "ginecologo@gmail.com",
-                            LastName = "Lopez",
-                            Name = "Pedro",
-                            Password = "1234567a"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Email = "oncologo@gmail.com",
-                            LastName = "Villalba",
-                            Name = "Leonel",
-                            Password = "1234567a"
+                            Password = "123abcd"
                         });
                 });
 
@@ -146,26 +108,26 @@ namespace Clinic_API.Migrations
                         new
                         {
                             Id = 1,
-                            Email = "test@test.com",
+                            Email = "pablo@gomez.com",
                             LastName = "Gomez",
                             Name = "Pablo",
-                            Password = "1234567a"
+                            Password = "123abcd"
                         },
                         new
                         {
                             Id = 2,
-                            Email = "test2@test2.com",
+                            Email = "juan@perez.com",
                             LastName = "Perez",
                             Name = "Juan",
-                            Password = "1234567a"
+                            Password = "123abv"
                         },
                         new
                         {
                             Id = 3,
-                            Email = "test3@test3.com",
+                            Email = "bautista@velez.com",
                             LastName = "Velez",
                             Name = "Bautista",
-                            Password = "1234567a"
+                            Password = "123abcd"
                         });
                 });
 
@@ -212,48 +174,57 @@ namespace Clinic_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 20,
-                            Description = "Tengo mucha fiebre desde que tome sol",
-                            DoctorId = 10,
+                            Id = 1,
+                            Description = "Dolor de pecho",
+                            DoctorId = 6,
                             PatientId = 1,
                             StatusQuery = 0,
-                            Title = "Fiebre"
+                            Title = "Cancer"
                         },
                         new
                         {
-                            Id = 32,
+                            Id = 2,
                             Description = "Picor en el cuello",
-                            DoctorId = 10,
+                            DoctorId = 6,
                             PatientId = 1,
                             StatusQuery = 0,
                             Title = "Dermatitis"
                         },
                         new
                         {
-                            Id = 41,
-                            Description = "Me duele el pecho cuando camino 3 cuadras",
-                            DoctorId = 9,
-                            PatientId = 1,
+                            Id = 3,
+                            Description = "Resfrio y fiebre",
+                            DoctorId = 7,
+                            PatientId = 2,
                             StatusQuery = 0,
-                            Title = "Dolor de pecho"
+                            Title = "Gripe"
                         },
                         new
                         {
-                            Id = 51,
-                            Description = "No llego a leer los subtitulos de una pelicula",
-                            DoctorId = 11,
-                            PatientId = 1,
+                            Id = 4,
+                            Description = "Perdida olfato",
+                            DoctorId = 7,
+                            PatientId = 2,
                             StatusQuery = 0,
-                            Title = "Problemas de vista"
+                            Title = "Covid"
                         },
                         new
                         {
-                            Id = 52,
-                            Description = "Tengo poca energia y dolor en los pulmones",
-                            DoctorId = 13,
-                            PatientId = 1,
+                            Id = 5,
+                            Description = "Resfrio y fiebre",
+                            DoctorId = 8,
+                            PatientId = 3,
                             StatusQuery = 0,
-                            Title = "Posible cancer"
+                            Title = "Gripe"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Description = "Resfrio y fiebre",
+                            DoctorId = 8,
+                            PatientId = 3,
+                            StatusQuery = 0,
+                            Title = "Gripe"
                         });
                 });
 
