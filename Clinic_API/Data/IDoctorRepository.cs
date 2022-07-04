@@ -7,6 +7,5 @@ namespace ClinicQueriesAPI.Data
         public Doctor? GetDoctor(int doctorId);
         public IEnumerable<Doctor> GetDoctors();
         public Doctor? GetDoctorByEmail(string email);
-
     }
 }

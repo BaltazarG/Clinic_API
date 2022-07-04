@@ -3,6 +3,7 @@ using System;
 using ClinicQueriesAPI.DBContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Clinic_API.Migrations
 {
     [DbContext(typeof(ClinicContext))]
-    partial class ClinicContextModelSnapshot : ModelSnapshot
+    [Migration("20220703162729_patient-doctors")]
+    partial class patientdoctors
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.6");
@@ -257,6 +259,21 @@ namespace Clinic_API.Migrations
                         });
                 });
 
+            modelBuilder.Entity("DoctorPatient", b =>
+                {
+                    b.Property<int>("DoctorsId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PatientsId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("DoctorsId", "PatientsId");
+
+                    b.HasIndex("PatientsId");
+
+                    b.ToTable("DoctorPatient");
+                });
+
             modelBuilder.Entity("ClinicQueriesAPI.Entities.Query", b =>
                 {
                     b.HasOne("ClinicQueriesAPI.Entities.Doctor", "Doctor")
@@ -274,6 +291,21 @@ namespace Clinic_API.Migrations
                     b.Navigation("Doctor");
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("DoctorPatient", b =>
+                {
+                    b.HasOne("ClinicQueriesAPI.Entities.Doctor", null)
+                        .WithMany()
+                        .HasForeignKey("DoctorsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ClinicQueriesAPI.Entities.Patient", null)
+                        .WithMany()
+                        .HasForeignKey("PatientsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ClinicQueriesAPI.Entities.Doctor", b =>

@@ -3,6 +3,7 @@ using System;
 using ClinicQueriesAPI.DBContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Clinic_API.Migrations
 {
     [DbContext(typeof(ClinicContext))]
-    partial class ClinicContextModelSnapshot : ModelSnapshot
+    [Migration("20220703155556_patients-doctor")]
+    partial class patientsdoctor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.6");
@@ -119,6 +121,9 @@ namespace Clinic_API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("DoctorId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -139,6 +144,8 @@ namespace Clinic_API.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
 
                     b.ToTable("Patients");
 
@@ -257,6 +264,13 @@ namespace Clinic_API.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ClinicQueriesAPI.Entities.Patient", b =>
+                {
+                    b.HasOne("ClinicQueriesAPI.Entities.Doctor", null)
+                        .WithMany("Patients")
+                        .HasForeignKey("DoctorId");
+                });
+
             modelBuilder.Entity("ClinicQueriesAPI.Entities.Query", b =>
                 {
                     b.HasOne("ClinicQueriesAPI.Entities.Doctor", "Doctor")
@@ -278,6 +292,8 @@ namespace Clinic_API.Migrations
 
             modelBuilder.Entity("ClinicQueriesAPI.Entities.Doctor", b =>
                 {
+                    b.Navigation("Patients");
+
                     b.Navigation("Queries");
                 });
 

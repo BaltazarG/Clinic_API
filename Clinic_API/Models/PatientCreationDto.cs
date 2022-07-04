@@ -15,5 +15,9 @@ namespace ClinicQueriesAPI.Models
 
         [Required(ErrorMessage = "Ingresa una contraseña")]
         public string Password { get; set; } = string.Empty;
+
+
+        public string UserType { get; } = "patient";
+
     }
 }

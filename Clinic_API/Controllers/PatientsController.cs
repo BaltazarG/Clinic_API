@@ -24,7 +24,7 @@ namespace ClinicQueriesAPI.Controllers
 
 
         [HttpGet]
-        [Authorize]
+        
         public ActionResult<List<PatientWithoutQueriesDto>> GetPatients()
         {
             var patients = _patientRepository.GetPatients();
@@ -39,40 +39,19 @@ namespace ClinicQueriesAPI.Controllers
 
         [HttpGet("{patientId}")]
         [Authorize]
-        public ActionResult<PatientWithoutQueriesDto> GetPatient(int patientId)
+        public ActionResult<PatientDto> GetPatient(int patientId)
         {
             var patient = _patientRepository.GetPatient(patientId);
             if (patient is null)
             {
                 return NotFound();
             }
-            return Ok(_mapper.Map<PatientWithoutQueriesDto>(patient));
+            return Ok(_mapper.Map<PatientDto>(patient));
         }
 
-
-
-        [HttpPost]
-        public ActionResult<PatientDto> CreatePatient(PatientCreationDto patientToCreate)
-        {
-
-            Patient newPatient = _mapper.Map<Patient>(patientToCreate);
-
-            _patientRepository.AddPatient(newPatient);
-            _patientRepository.SaveChanges();
-
-
-
-            return CreatedAtRoute("GetPatients",
-                new
-                {
-                    patientId = newPatient.Id
-                },
-                _mapper.Map<PatientWithoutQueriesDto>(newPatient));
-
-        }
 
         [HttpPut("{patientId}")]
-        public ActionResult<PatientDto> UpdatePatient(int patientId, PatientUpdateDto patientUpdatedDto)
+        public ActionResult<PatientUpdateDto> UpdatePatient(int patientId, PatientUpdateDto patientUpdatedDto)
         {
             if (!_patientRepository.IsPatient(patientId))
             {

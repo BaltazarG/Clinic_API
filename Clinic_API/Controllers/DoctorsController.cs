@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Clinic_API.Models;
 using ClinicQueriesAPI.Data;
 using ClinicQueriesAPI.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -23,7 +24,7 @@ namespace ClinicQueriesAPI.Controllers
 
 
         [HttpGet]
-        public ActionResult<List<DoctorDto>> GetDoctors()
+        public ActionResult<List<DoctorWithoutQueriesDto>> GetDoctors()
         {
             var doctors = _doctorRepository.GetDoctors();
 
@@ -32,7 +33,7 @@ namespace ClinicQueriesAPI.Controllers
                 return NotFound();
             }
 
-            return Ok(_mapper.Map<List<DoctorDto>>(doctors));
+            return Ok(_mapper.Map<List<DoctorWithoutQueriesDto>>(doctors));
         }
 
         [HttpGet("{doctorId}")]
@@ -45,5 +46,7 @@ namespace ClinicQueriesAPI.Controllers
             }
             return Ok(_mapper.Map<DoctorDto>(doctor));
         }
+
+       
     }
 }

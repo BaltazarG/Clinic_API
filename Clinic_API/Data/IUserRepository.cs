@@ -6,6 +6,6 @@ namespace Clinic_API.Data
 {
     public interface IUserRepository : IRepository
     {
-        public User? ValidateUser(AuthenticationRequestBody requestBody);
+        public User? ValidateUser(AuthenticationRequestBody requestBody, string userType);
     }
 }

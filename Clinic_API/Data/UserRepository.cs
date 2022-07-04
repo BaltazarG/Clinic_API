@@ -11,9 +11,9 @@ namespace Clinic_API.Data
         {
         }
 
-        public User? ValidateUser(AuthenticationRequestBody requestBody)
+        public User? ValidateUser(AuthenticationRequestBody requestBody, string userType)
         {
-            if(requestBody.UserType == "patient")
+            if(userType == "patient")
                 return _context.Patients.FirstOrDefault(p => p.Email == requestBody.Email && p.Password == requestBody.Password);
             return _context.Doctors.FirstOrDefault(d => d.Email == requestBody.Email && d.Password == requestBody.Password);
         }

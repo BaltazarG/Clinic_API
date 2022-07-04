@@ -1,5 +1,6 @@
 ﻿using ClinicQueriesAPI.DBContexts;
 using ClinicQueriesAPI.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClinicQueriesAPI.Data
 {
@@ -11,7 +12,7 @@ namespace ClinicQueriesAPI.Data
 
         public Patient? GetPatient(int patientId)
         {
-            return _context.Patients.Where(p => p.Id == patientId).FirstOrDefault();
+            return _context.Patients.Include(p => p.Queries).Where(p => p.Id == patientId).FirstOrDefault();
         }
 
         public IEnumerable<Patient> GetPatients()

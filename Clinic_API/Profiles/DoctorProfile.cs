@@ -10,6 +10,8 @@ namespace ClinicQueriesAPI.Profiles
         public DoctorProfile()
         {
             CreateMap<Doctor, DoctorDto>();
+            CreateMap<Doctor, DoctorWithoutQueriesDto>();
+            CreateMap<Doctor, DoctorPatientsDto>();
             CreateMap<Doctor, AuthDoctorDto>();
         }        
     }

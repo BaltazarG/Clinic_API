@@ -12,11 +12,11 @@ namespace Clinic_API.Services
         {
             _userRepository = userRepository;
         }
-        public User? AuthenticateUser(AuthenticationRequestBody authenticationRequest)
+        public User? AuthenticateUser(AuthenticationRequestBody authenticationRequest, string userType)
         {
             if (String.IsNullOrEmpty(authenticationRequest.Email) || String.IsNullOrEmpty(authenticationRequest.Password))
                 return null;
-            return _userRepository.ValidateUser(authenticationRequest);
+            return _userRepository.ValidateUser(authenticationRequest, userType);
         }
         
     }
