@@ -39,6 +39,10 @@ namespace Clinic_API.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Specialty")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Token")
                         .HasColumnType("TEXT");
 
@@ -53,7 +57,8 @@ namespace Clinic_API.Migrations
                             Email = "kinesiologo@gmail.com",
                             LastName = "Molina",
                             Name = "Nahuel",
-                            Password = "1234567a"
+                            Password = "1234567a",
+                            Specialty = "Kinesiologo"
                         },
                         new
                         {
@@ -61,7 +66,8 @@ namespace Clinic_API.Migrations
                             Email = "pediatra@gmail.com",
                             LastName = "Perez",
                             Name = "Arturo",
-                            Password = "1234567a"
+                            Password = "1234567a",
+                            Specialty = "Pediatra"
                         },
                         new
                         {
@@ -69,7 +75,8 @@ namespace Clinic_API.Migrations
                             Email = "traumatologo@gmail.com",
                             LastName = "Velez",
                             Name = "Julio",
-                            Password = "1234567a"
+                            Password = "1234567a",
+                            Specialty = "Traumatologo"
                         },
                         new
                         {
@@ -77,7 +84,8 @@ namespace Clinic_API.Migrations
                             Email = "cardiologo@gmail.com",
                             LastName = "Moreno",
                             Name = "Alvaro",
-                            Password = "1234567a"
+                            Password = "1234567a",
+                            Specialty = "Cardiologo"
                         },
                         new
                         {
@@ -85,7 +93,8 @@ namespace Clinic_API.Migrations
                             Email = "dermatologo@gmail.com",
                             LastName = "Torres",
                             Name = "Carlos",
-                            Password = "1234567a"
+                            Password = "1234567a",
+                            Specialty = "Dermatologo"
                         },
                         new
                         {
@@ -93,7 +102,8 @@ namespace Clinic_API.Migrations
                             Email = "oftalmologo@gmail.com",
                             LastName = "Mendez",
                             Name = "Luis",
-                            Password = "1234567a"
+                            Password = "1234567a",
+                            Specialty = "Oftalmologo"
                         },
                         new
                         {
@@ -101,7 +111,8 @@ namespace Clinic_API.Migrations
                             Email = "ginecologo@gmail.com",
                             LastName = "Lopez",
                             Name = "Pedro",
-                            Password = "1234567a"
+                            Password = "1234567a",
+                            Specialty = "Ginecologo"
                         },
                         new
                         {
@@ -109,7 +120,8 @@ namespace Clinic_API.Migrations
                             Email = "oncologo@gmail.com",
                             LastName = "Villalba",
                             Name = "Leonel",
-                            Password = "1234567a"
+                            Password = "1234567a",
+                            Specialty = "Oncologo"
                         });
                 });
 
@@ -212,16 +224,20 @@ namespace Clinic_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 20,
+                            Id = 1,
+                            CreatedAt = new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3736),
                             Description = "Tengo mucha fiebre desde que tome sol",
+                            Diagnostic = "Te vas a recuperar",
                             DoctorId = 10,
                             PatientId = 1,
-                            StatusQuery = 0,
+                            ResolvedAt = new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3750),
+                            StatusQuery = 1,
                             Title = "Fiebre"
                         },
                         new
                         {
-                            Id = 32,
+                            Id = 2,
+                            CreatedAt = new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3753),
                             Description = "Picor en el cuello",
                             DoctorId = 10,
                             PatientId = 1,
@@ -230,7 +246,8 @@ namespace Clinic_API.Migrations
                         },
                         new
                         {
-                            Id = 41,
+                            Id = 3,
+                            CreatedAt = new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3754),
                             Description = "Me duele el pecho cuando camino 3 cuadras",
                             DoctorId = 9,
                             PatientId = 1,
@@ -239,7 +256,8 @@ namespace Clinic_API.Migrations
                         },
                         new
                         {
-                            Id = 51,
+                            Id = 4,
+                            CreatedAt = new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3756),
                             Description = "No llego a leer los subtitulos de una pelicula",
                             DoctorId = 11,
                             PatientId = 1,
@@ -248,7 +266,8 @@ namespace Clinic_API.Migrations
                         },
                         new
                         {
-                            Id = 52,
+                            Id = 5,
+                            CreatedAt = new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3757),
                             Description = "Tengo poca energia y dolor en los pulmones",
                             DoctorId = 13,
                             PatientId = 1,
