@@ -9,7 +9,7 @@ namespace ClinicQueriesAPI.Controllers
 {
     [Route("api/patients", Name = "GetPatients")]
     [ApiController]
-    
+    [Authorize]
 
     public class PatientsController : ControllerBase
     {
@@ -38,7 +38,7 @@ namespace ClinicQueriesAPI.Controllers
         }
 
         [HttpGet("{patientId}")]
-        [Authorize]
+        
         public ActionResult<PatientDto> GetPatient(int patientId)
         {
             var patient = _patientRepository.GetPatient(patientId);

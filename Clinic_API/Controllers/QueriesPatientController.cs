@@ -9,7 +9,7 @@ namespace ClinicQueriesAPI.Controllers
 {
     [ApiController]
     [Route("api/patients/{patientId}/queries", Name = "GetQueries")]
-    
+    [Authorize]
 
     public class QueriesPatientController : ControllerBase
     {
@@ -22,7 +22,6 @@ namespace ClinicQueriesAPI.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public ActionResult<List<QueryDto>> GetQueries(int patientId)
         {
             if (!_queryRepository.IsPatient(patientId))
@@ -37,7 +36,6 @@ namespace ClinicQueriesAPI.Controllers
         }
 
         [HttpGet("{queryId}")]
-        [Authorize]
         public ActionResult<QueryDto> GetQuery(int patientId, int queryId)
         {
             if (!_queryRepository.IsPatient(patientId))
@@ -54,8 +52,6 @@ namespace ClinicQueriesAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize]
-
         public ActionResult<QueryDto> CreateQuery(int patientId, QueryCreationDto queryToCreate)
         {
             if (!_queryRepository.IsPatient(patientId))
@@ -80,7 +76,6 @@ namespace ClinicQueriesAPI.Controllers
         }
 
         [HttpPut("{queryId}")]
-        [Authorize]
         public ActionResult<QueryDto> UpdateQuery(int patientId, int queryId, QueryUpdateDto queryUpdated)
         {
             if (!_queryRepository.IsPatient(patientId))
@@ -104,7 +99,6 @@ namespace ClinicQueriesAPI.Controllers
         }
 
         [HttpDelete("{queryId}")]
-        [Authorize]
         public ActionResult<QueryDto> DeleteQuery(int patientId, int queryId)
         {
             if (!_queryRepository.IsPatient(patientId))
