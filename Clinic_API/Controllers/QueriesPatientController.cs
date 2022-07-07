@@ -75,28 +75,7 @@ namespace ClinicQueriesAPI.Controllers
 
         }
 
-        [HttpPut("{queryId}")]
-        public ActionResult<QueryDto> UpdateQuery(int patientId, int queryId, QueryUpdateDto queryUpdated)
-        {
-            if (!_queryRepository.IsPatient(patientId))
-            {
-                return NotFound();
-            }
-
-            var queryToUpdate = _queryRepository.GetQuery(patientId, queryId);
-            if (queryToUpdate is null)
-                return NotFound();
-
-            queryToUpdate.ResolvedAt = DateTime.Now;
-                            
-
-            _mapper.Map(queryUpdated, queryToUpdate);
-
-            _queryRepository.SaveChanges();
-
-            return NoContent();
-
-        }
+        
 
         [HttpDelete("{queryId}")]
         public ActionResult<QueryDto> DeleteQuery(int patientId, int queryId)

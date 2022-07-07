@@ -51,5 +51,28 @@ namespace ClinicQueriesAPI.Controllers
             return Ok(_mapper.Map<QueryDto>(query));
         }
 
+        [HttpPut("{queryId}")]
+        public ActionResult<QueryDto> UpdateQuery(int doctorId, int queryId, QueryUpdateDto queryUpdated)
+        {
+            if (!_queryRepository.IsDoctor(doctorId))
+            {
+                return NotFound();
+            }
+
+            var queryToUpdate = _queryRepository.GetQueryDoctor(doctorId, queryId);
+            if (queryToUpdate is null)
+                return NotFound();
+
+            queryToUpdate.ResolvedAt = DateTime.Now;
+            queryToUpdate.StatusQuery = Enums.StatusQuery.Resolved;
+
+            _mapper.Map(queryUpdated, queryToUpdate);
+
+            _queryRepository.SaveChanges();
+
+            return NoContent();
+
+        }
+
     }
 }

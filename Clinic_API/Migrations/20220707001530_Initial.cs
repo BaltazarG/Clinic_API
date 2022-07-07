@@ -134,27 +134,27 @@ namespace Clinic_API.Migrations
             migrationBuilder.InsertData(
                 table: "Queries",
                 columns: new[] { "Id", "CreatedAt", "Description", "Diagnostic", "DoctorId", "PatientId", "ResolvedAt", "StatusQuery", "Title" },
-                values: new object[] { 1, new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3736), "Tengo mucha fiebre desde que tome sol", "Te vas a recuperar", 10, 1, new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3750), 1, "Fiebre" });
+                values: new object[] { 1, new DateTime(2022, 7, 6, 21, 15, 29, 929, DateTimeKind.Local).AddTicks(6556), "Tengo mucha fiebre desde que tome sol", "Te vas a recuperar", 10, 1, new DateTime(2022, 7, 6, 21, 15, 29, 929, DateTimeKind.Local).AddTicks(6568), 1, "Fiebre" });
 
             migrationBuilder.InsertData(
                 table: "Queries",
                 columns: new[] { "Id", "CreatedAt", "Description", "Diagnostic", "DoctorId", "PatientId", "ResolvedAt", "StatusQuery", "Title" },
-                values: new object[] { 2, new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3753), "Picor en el cuello", null, 10, 1, null, 0, "Dermatitis" });
+                values: new object[] { 2, new DateTime(2022, 7, 6, 21, 15, 29, 929, DateTimeKind.Local).AddTicks(6570), "Picor en el cuello", null, 10, 1, null, 0, "Dermatitis" });
 
             migrationBuilder.InsertData(
                 table: "Queries",
                 columns: new[] { "Id", "CreatedAt", "Description", "Diagnostic", "DoctorId", "PatientId", "ResolvedAt", "StatusQuery", "Title" },
-                values: new object[] { 3, new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3754), "Me duele el pecho cuando camino 3 cuadras", null, 9, 1, null, 0, "Dolor de pecho" });
+                values: new object[] { 3, new DateTime(2022, 7, 6, 21, 15, 29, 929, DateTimeKind.Local).AddTicks(6572), "Me duele el pecho cuando camino 3 cuadras", null, 9, 1, null, 0, "Dolor de pecho" });
 
             migrationBuilder.InsertData(
                 table: "Queries",
                 columns: new[] { "Id", "CreatedAt", "Description", "Diagnostic", "DoctorId", "PatientId", "ResolvedAt", "StatusQuery", "Title" },
-                values: new object[] { 4, new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3756), "No llego a leer los subtitulos de una pelicula", null, 11, 1, null, 0, "Problemas de vista" });
+                values: new object[] { 4, new DateTime(2022, 7, 6, 21, 15, 29, 929, DateTimeKind.Local).AddTicks(6574), "No llego a leer los subtitulos de una pelicula", null, 11, 1, null, 0, "Problemas de vista" });
 
             migrationBuilder.InsertData(
                 table: "Queries",
                 columns: new[] { "Id", "CreatedAt", "Description", "Diagnostic", "DoctorId", "PatientId", "ResolvedAt", "StatusQuery", "Title" },
-                values: new object[] { 5, new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3757), "Tengo poca energia y dolor en los pulmones", null, 13, 1, null, 0, "Posible cancer" });
+                values: new object[] { 5, new DateTime(2022, 7, 6, 21, 15, 29, 929, DateTimeKind.Local).AddTicks(6575), "Tengo poca energia y dolor en los pulmones", null, 13, 1, null, 0, "Posible cancer" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Queries_DoctorId",

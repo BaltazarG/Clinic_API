@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Clinic_API.Migrations
 {
     [DbContext(typeof(ClinicContext))]
-    [Migration("20220706211407_Initial")]
+    [Migration("20220707001530_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -227,19 +227,19 @@ namespace Clinic_API.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3736),
+                            CreatedAt = new DateTime(2022, 7, 6, 21, 15, 29, 929, DateTimeKind.Local).AddTicks(6556),
                             Description = "Tengo mucha fiebre desde que tome sol",
                             Diagnostic = "Te vas a recuperar",
                             DoctorId = 10,
                             PatientId = 1,
-                            ResolvedAt = new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3750),
+                            ResolvedAt = new DateTime(2022, 7, 6, 21, 15, 29, 929, DateTimeKind.Local).AddTicks(6568),
                             StatusQuery = 1,
                             Title = "Fiebre"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3753),
+                            CreatedAt = new DateTime(2022, 7, 6, 21, 15, 29, 929, DateTimeKind.Local).AddTicks(6570),
                             Description = "Picor en el cuello",
                             DoctorId = 10,
                             PatientId = 1,
@@ -249,7 +249,7 @@ namespace Clinic_API.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3754),
+                            CreatedAt = new DateTime(2022, 7, 6, 21, 15, 29, 929, DateTimeKind.Local).AddTicks(6572),
                             Description = "Me duele el pecho cuando camino 3 cuadras",
                             DoctorId = 9,
                             PatientId = 1,
@@ -259,7 +259,7 @@ namespace Clinic_API.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3756),
+                            CreatedAt = new DateTime(2022, 7, 6, 21, 15, 29, 929, DateTimeKind.Local).AddTicks(6574),
                             Description = "No llego a leer los subtitulos de una pelicula",
                             DoctorId = 11,
                             PatientId = 1,
@@ -269,7 +269,7 @@ namespace Clinic_API.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2022, 7, 6, 18, 14, 6, 823, DateTimeKind.Local).AddTicks(3757),
+                            CreatedAt = new DateTime(2022, 7, 6, 21, 15, 29, 929, DateTimeKind.Local).AddTicks(6575),
                             Description = "Tengo poca energia y dolor en los pulmones",
                             DoctorId = 13,
                             PatientId = 1,

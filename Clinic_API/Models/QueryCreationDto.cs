@@ -9,6 +9,9 @@ namespace ClinicQueriesAPI.Models
 
         [Required(ErrorMessage = "Agrega una descripcion")]
         public string Description { get; set; } = string.Empty;
+
+        [Range(6, 13, ErrorMessage = "Debe ser un numero entre 6 y 13")]
+        [Required(ErrorMessage = "Agrega un doctor")]
         public int DoctorId { get; set; }
     }
 }
